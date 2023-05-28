@@ -136,7 +136,7 @@ class PetFriends:
         return status, result
 
     def create_pet_simple(self, auth_key, name, animal_type, age):
-        """Метод отправляет (постит) на сервер о добавлении данных о новом питомце без фото и возвращает статус
+        """Метод делает post к API сервера о добавлении данных о новом питомце без фото и возвращает статус
         запроса на сервер и результат в формате JSON с данными добавленного питомца без фото"""
         headers = {'auth_key': auth_key['key']}
         data = {
@@ -154,7 +154,7 @@ class PetFriends:
         return status, result
 
     def add_new_photo_pet(self, auth_key, pet_id, pet_photo) :
-        """Метод отправляет (постит) на сервер фото питомца и возвращает статус
+        """Метод делает post к API сервера, добавляет фото питомца и возвращает статус
         запроса на сервер и результат в формате JSON с данными добавленного питомца"""
         data = MultipartEncoder(
             fields={'pet_photo': (pet_photo, open(pet_photo, 'rb'), 'images/jpg')
